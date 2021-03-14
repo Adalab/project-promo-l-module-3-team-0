@@ -4,7 +4,8 @@
   "description": "Server (static and API) for Awesome Profile Cards demonstration.",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "jest -w"
   },
   "author": "Adalab",
