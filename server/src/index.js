@@ -11,6 +11,10 @@ server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
+// config express static server
+const staticServerPath = './public'; // relative to the root of the project
+server.use(express.static(staticServerPath));
+
 server.get('/cards', (req, res) => {
   const response = {
     users: [{ name: 'Sofía' }, { name: 'María' }]
