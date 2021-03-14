@@ -10,7 +10,7 @@ server.use(express.json());
 // set template engine middlewares
 server.set('view engine', 'ejs');
 
-const serverPort = 3000;
+const serverPort = process.env.PORT || 3000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
