@@ -18,9 +18,20 @@ server.get('/cards', (req, res) => {
   res.json(response);
 });
 
-server.post('/cards', (req, res) => {
-  const response = {
-    users: [{ name: 'Sofía' }, { name: 'María' }]
-  };
+server.post('/card', (req, res) => {
+  console.log(req.body);
+  const response = {};
+
+  if( !req.body.name || req.body.name.trim() === '' ) {
+    response.success = false;
+    response.error   = "Parameter name cannot be empty.";
+  }
+  else {
+    // Save to db
+
+    response.success = true;
+    response.cardURL = "https://TODO-VA-BIEN.com/";
+  }
+
   res.json(response);
 });
