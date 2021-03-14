@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const server = express();
 
@@ -14,6 +15,14 @@ server.listen(serverPort, () => {
 // config express static server
 const staticServerPath = './public'; // relative to the root of the project
 server.use(express.static(staticServerPath));
+
+// not found error
+server.get('*', (req, res) => {
+  // relative to this directory
+  const notFoundFileRelativePath = '../public/404-not-found.html';
+  const notFoundFileAbsolutePath = path.join(__dirname, notFoundFileRelativePath);
+  res.status(404).sendFile(notFoundFileAbsolutePath);
+});
 
 server.get('/cards', (req, res) => {
   const response = {
