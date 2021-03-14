@@ -1,6 +1,6 @@
 const createCard = (data) => {
   return fetch(
-    "https://awesome-profile-cards.herokuapp.com/card/",
+    "//localhost:3000/card/",
     {
       method: "POST",
       body: JSON.stringify(data),
